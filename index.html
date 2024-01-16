@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Four</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>CONNECT FOUR GAME</h1>
+    
+    <div class="topbar">
+      <div class="playername">
+        Player's Turn: <button ><span id="currentPlayer">1</span></button>
+      </div>
+      <button onClick="location.href='index.html'">NEW GAME</button>
+      <button id="myBtn">RULES</button>
+    </div>
+    <br>
+
+    
+
+    <div class="grid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="taken bottom"></div>
+        <div class="taken bottom"></div>
+        <div class="taken bottom"></div>
+        <div class="taken bottom"></div>
+        <div class="taken bottom"></div>
+        <div class="taken bottom"></div>
+        <div class="taken bottom"></div>
+    </div>
+  </div>
+
+<div id="rulesModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>
+      <h3>GAME RULES</h3>
+      <ul>
+        <li>Players must alternate turns and only one disc can be dropped in each turn</li>
+        <li>You can only drop a disc from the top and on top of a taken space</li>
+        <li>The first player to connect 4 of his discs in a row (either vertically, horizontally or diagonally) wins the game </li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+<div id="resultsModal" class="modal">
+  <div class="modal-content">
+    <span class="closed">&times;</span>
+    <img src="images/trophy.png" alt="">
+    <h3 id="result"></h3>
+    <div class="modal-btn">
+      <button onClick="location.href='index.html'">NEW GAME</button>
+    </div>
+  </div>
+</div>  
+
+  <script src="script.js"></script>
+</body>
+</html>
