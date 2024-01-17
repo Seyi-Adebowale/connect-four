@@ -1,8 +1,12 @@
 const cells = document.querySelectorAll('.grid div')
 const result = document.getElementById('result')
 const displayCurrentPlayer = document.getElementById('currentPlayer')
+const playerOne = document.getElementById('playerOne');
+const playerTwo = document.getElementById('playerTwo');
 
   let currentPlayer = 1
+  let playerOneScore = 0;
+  let playerTwoScore = 0;
 
     const winningArrays = [
     [0, 1, 2, 3],
@@ -79,6 +83,7 @@ const displayCurrentPlayer = document.getElementById('currentPlayer')
   function clearBoard(){
     for(let i = 0; i < cells.length; i++){
         cells[i].style.backgroundColor = 'white'
+        cells[i].classList.remove('taken');
       }
   }
 
@@ -99,8 +104,8 @@ const displayCurrentPlayer = document.getElementById('currentPlayer')
       {
         displayModal()
         result.innerHTML = 'Player One Wins!'
-        
-        clearBoard()
+        playerOneScore++;
+        playerOne.textContent = playerOneScore;
       }
 
       //check those cells to see if they all have the background color of player 2
@@ -113,16 +118,27 @@ const displayCurrentPlayer = document.getElementById('currentPlayer')
       {
         displayModal()
         result.innerHTML = 'Player Two Wins!'
-        
-        clearBoard()
+        playerTwoScore++;
+        playerTwo.textContent = playerTwoScore;
     }
   }
 }
 
+function checkTie() {
+  for (let i = 0; i < cells.length; i++) {
+      if (!cells[i].classList.contains('taken')) {
+          return;
+      }
+  }
+
+  // If all cells are taken, display a tie alert
+  alert('It\'s a tie!');
+  clearBoard();
+}
 
 for(let i = 0; i < cells.length; i++){
     cells[i].onclick = () =>{
-        if (cells[i + 7].classList.contains('taken') &&! cells[i].classList.contains('taken')) {
+      if (cells[i + 7].classList.contains('taken') || cells[i + 7].classList.contains('bottom') &&! cells[i].classList.contains('taken')) {
             if (cells[i].classList.contains('taken')){
                 alert ('Cant play there!')
             }
@@ -137,8 +153,9 @@ for(let i = 0; i < cells.length; i++){
               currentPlayer = 1
               displayCurrentPlayer.innerHTML = currentPlayer        
           } 
+          checkBoard()
+          checkTie()
       }else alert('Cant play there!')       
-      checkBoard()
   }
 } 
 
@@ -158,32 +175,27 @@ span.onclick = function() {
   modal.style.display = "none"
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none"
-  }
-}
-
 const modal2 = document.getElementById("resultsModal")
 
 // Get the <span> element that closes the modal
 const spann = document.getElementsByClassName("closed")[0]
 
-// When the user clicks on the button, open the modal
+// Display result modal
 function displayModal() {
   modal2.style.display = "block"
 }
 
-// When the user clicks on <span> (x), close the modal
+// Close the result modal
 spann.onclick = function() {
-  modal2.style.display = "none"
+  modal2.style.display = "none";
+  clearBoard();
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal2) {
-    modal2.style.display = "none"
+  if (event.target == modal) {
+    modal.style.display = "none";
+  } else if (event.target == modal2) {
+    modal2.style.display = "none";
   }
-}
-
+};

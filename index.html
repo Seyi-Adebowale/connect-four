@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Four</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     
 </head>
@@ -18,12 +19,19 @@
       <div class="playername">
         Player's Turn: <button ><span id="currentPlayer">1</span></button>
       </div>
+      <button onclick="clearBoard()">RESET</button>
       <button onClick="location.href='index.html'">NEW GAME</button>
       <button id="myBtn">RULES</button>
     </div>
     <br>
 
-    
+    <div class="score-board">
+      <h3>SCORE-BOARD</h3>
+      <div class="scores">
+          <div class="player1">Player One: <span id="playerOne" class="player1-style">0</span></div>
+          <div class="player2">Player Two: <span id="playerTwo" class="player2-style">0</span></div>
+      </div>
+    </div>
 
     <div class="grid">
         <div></div>
@@ -94,11 +102,11 @@
 
 <div id="resultsModal" class="modal">
   <div class="modal-content">
-    <span class="closed">&times;</span>
+    <!-- <span class="closed">&times;</span> -->
     <img src="images/trophy.png" alt="">
     <h3 id="result"></h3>
     <div class="modal-btn">
-      <button onClick="location.href='index.html'">NEW GAME</button>
+      <button class="closed">CONTINUE</button>
     </div>
   </div>
 </div>  

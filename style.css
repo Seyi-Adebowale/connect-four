@@ -73,7 +73,7 @@ button a{
     margin: auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 60%; 
+    width: 280px; 
     position: absolute;
     top: 50%;
     left: 50%;
@@ -82,7 +82,7 @@ button a{
 #resultsModal{
     text-align: center;
 }
-.close, .closed {
+.close{
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -103,4 +103,52 @@ button a{
 #result{
     font-size: 2rem;  
 }
-
+.score-board{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    outline: 4px solid black;
+    padding: 0px 20px 20px;
+    width: 450px;
+    margin: 0px auto 15px;
+    font-weight: bold;
+}
+.scores{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+    padding-top: 10px;
+}
+#playerOne, #playerTwo{
+    padding: 10px 20px;
+    margin: 5px;
+}
+.player1-style{
+    outline: 2px solid red;
+    color: red;
+}
+.player2-style{
+    outline: 2px solid rgb(165, 165, 1);
+    color: rgb(165, 165, 1);
+}
+.player1{
+    color: red;
+}
+.player2{
+    color: rgb(165, 165, 1);
+}
+.score-board h3{
+    letter-spacing: 1px;
+}
+@media (max-width:500px){
+    .score-board{
+        width: 80%;
+    }
+    .scores{
+        flex-direction: column;
+    }
+    .player1{
+        margin-bottom: 40px;
+    }
+}
